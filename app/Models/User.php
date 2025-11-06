@@ -56,7 +56,7 @@ class User
     public static function getAll()
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->query("SELECT * FROM user ORDER BY id DESC");
+        $stmt = $pdo->query("SELECT * FROM users ORDER BY id DESC");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -68,7 +68,7 @@ class User
     public static function findById($id)
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->prepare("SELECT * FROM user WHERE id = ?");
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
@@ -81,7 +81,7 @@ class User
     public static function findByEmail($email)
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->prepare("SELECT * FROM user WHERE email = ?");
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->execute([$email]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
@@ -93,7 +93,7 @@ class User
     public function save()
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->prepare("INSERT INTO user (nom, email) VALUES (?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO users (nom, email) VALUES (?, ?)");
         return $stmt->execute([$this->nom, $this->email]);
     }
 
@@ -104,7 +104,7 @@ class User
     public function update()
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->prepare("UPDATE user SET nom = ?, email = ? WHERE id = ?");
+        $stmt = $pdo->prepare("UPDATE users SET nom = ?, email = ? WHERE id = ?");
         return $stmt->execute([$this->nom, $this->email, $this->id]);
     }
 
@@ -115,7 +115,7 @@ class User
     public function delete()
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->prepare("DELETE FROM user WHERE id = ?");
+        $stmt = $pdo->prepare("DELETE FROM users WHERE id = ?");
         return $stmt->execute([$this->id]);
     }
 }
