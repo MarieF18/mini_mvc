@@ -8,7 +8,7 @@ use Mini\Core\Router;
 
 // Table des routes minimaliste
 $routes = [
-    ['GET', '/', [Mini\Controllers\HomeController::class, 'index']],
+    ['GET', '/', [Mini\Controllers\HomeController::class, 'accueil']],
     ['GET', '/users', [Mini\Controllers\HomeController::class, 'users']],
 ];
 

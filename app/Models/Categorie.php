@@ -5,11 +5,10 @@ namespace Mini\Models;
 use Mini\Core\Database;
 use PDO;
 
-class User
+class Categorie
 {
     private $id;
     private $nom;
-    private $email;
 
     // =====================
     // Getters / Setters
@@ -35,87 +34,77 @@ class User
         $this->nom = $nom;
     }
 
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
     // =====================
     // Méthodes CRUD
     // =====================
 
     /**
-     * Récupère tous les utilisateurs
+     * Récupère toutes les catégories
      * @return array
      */
     public static function getAll()
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->query("SELECT * FROM users ORDER BY id_user DESC");
+        $stmt = $pdo->query("SELECT * FROM categories ORDER BY id_cat DESC");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
-     * Récupère un utilisateur par son ID
+     * Récupère une catégorie par son ID
      * @param int $id
      * @return array|null
      */
     public static function findById($id)
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE id_user = ?");
+        $stmt = $pdo->prepare("SELECT * FROM categories WHERE id_cat = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
-     * Récupère un utilisateur par son email
-     * @param string $email
+     * Récupère une categorie par son nom
+     * @param string $nom
      * @return array|null
      */
-    public static function findByEmail($email)
+    public static function findByEmail($nom)
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
-        $stmt->execute([$email]);
+        $stmt = $pdo->prepare("SELECT * FROM categories WHERE nom_cat = ?");
+        $stmt->execute([$nom]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
-     * Crée un nouvel utilisateur
+     * Crée une nouvelle catégorie
      * @return bool
      */
     public function save()
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->prepare("INSERT INTO users (nom, email) VALUES (?, ?)");
-        return $stmt->execute([$this->nom, $this->email]);
+        $stmt = $pdo->prepare("INSERT INTO categories (nom) VALUES (?)");
+        return $stmt->execute([$this->nom]);
     }
 
     /**
-     * Met à jour les informations d’un utilisateur existant
+     * Met à jour les informations d’une catégorie existante
      * @return bool
      */
     public function update()
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->prepare("UPDATE users SET nom = ?, email = ? WHERE id_user = ?");
-        return $stmt->execute([$this->nom, $this->email, $this->id]);
+        $stmt = $pdo->prepare("UPDATE categories SET nom = ? WHERE id_cat = ?");
+        return $stmt->execute([$this->nom, $this->id]);
     }
 
     /**
-     * Supprime un utilisateur
+     * Supprime une catégorie
      * @return bool
      */
     public function delete()
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->prepare("DELETE FROM users WHERE id_user = ?");
+        $stmt = $pdo->prepare("DELETE FROM categories WHERE id_cat = ?");
         return $stmt->execute([$this->id]);
     }
 }
