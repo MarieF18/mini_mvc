@@ -18,7 +18,7 @@
             <?php endforeach; ?>
 
             <p><?=htmlspecialchars($product['description'])?></p>
-            <a href="/">Plus d'information</a>
+            <a href="/produit?produit=<?=$product['id_prod']?>">Plus d'information</a>
             <button type="button">Ajouter au panier</button>
         <?php endforeach; ?>
     </div>

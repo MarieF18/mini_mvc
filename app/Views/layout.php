@@ -16,6 +16,10 @@
 <header>
     <!-- Affiche le titre principal avec échappement -->
     <h1><?= isset($title) ? htmlspecialchars($title) : 'App' ?></h1>
+    <nav>
+        <a href="/">Panier</a>
+        <a href="/">Espace client</a>
+    </nav>
 </header>
 <!-- Zone de contenu principal -->
 <main>
@@ -23,6 +27,10 @@
     <?= $content ?>
     
 </main>
+<!-- Pied de la page -->
+<footer>
+    
+</footer>
 <!-- Fin du corps de la page -->
 </body>
 <!-- Fin du document HTML -->

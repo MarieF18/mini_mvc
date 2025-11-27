@@ -24,6 +24,18 @@ final class HomeController extends Controller
         ]);
     }
 
+    public function prod(): void
+    {
+        // Appelle le moteur de rendu avec la vue et ses paramètres
+        $this->render('home/detailProd', params: [
+            $curr_id = $_GET['produit'],
+            'product' => $product = Product::findById($curr_id),
+            // Définit le titre transmis à la vue
+            'title' => $product['label'],
+            'categorie' => $categorie = (Categorie::findById($product['id_cat']))['nom_cat'],
+        ]);
+    }
+
     public function users(): void
     {
         // Appelle le moteur de rendu avec la vue et ses paramètres
