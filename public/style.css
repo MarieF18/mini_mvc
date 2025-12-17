@@ -1,0 +1,306 @@
+/*
+Header/Big Title : Georgia 
+Main : Lucida Sans
+
+Main Palette : 
+Light : #fffaf7
+Mid : #FDA462
+Dark : #D9641C
+
+Second Palette : 
+Light : #C0E9EB0
+Mid : #266C78
+Dark : #13363C
+*/
+
+/* Style pour tout le body */
+body {
+    font-family: 'Lucida Sans';
+    background-color: #fffaf7;
+    color: #266C78;
+}
+
+a {
+    all: unset;
+    cursor: pointer;
+}
+
+/* Style pour tout le header */
+header {
+    width: 100%;
+    font-family: Georgia;
+    background-color: #FDA462;
+    padding: 3px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-bottom: 5px;
+    z-index: 3;
+    box-shadow:0 5px 10px #d9641c77;
+}
+
+.buttons{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 160px;
+    background-color: #fffaf7;
+    margin-bottom: 5px;
+    z-index: 2;
+}
+
+h1 {
+    margin-left: 5%;
+}
+
+/* Style de la div derière le header (qui a une position fixe et donc n'intéragit pas avec les autres éléments de la page)*/
+.fixposition {
+    font-family: Georgia;
+    padding: 3px;
+    margin-bottom: 5px;
+    height: 160px
+}
+
+/* Style commun pour l'affichage des produits et des catégories */
+.prod, .statusfield {
+    text-align : center;
+    background-color: #f9fbfb;
+    padding: 10px;
+    margin : 10px auto;
+    width: 90%;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #266c7836, -1px -1px 1px #266c7836;
+}
+
+/* Style of the container of the categories divs pour qu'elles s'affichent cote à cote */
+#container {
+    display: flex;
+    gap: 2%;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* Style uniquement pour les categories */
+.statusfield {
+    width: 27%;
+    min-width: 200px;
+}
+
+/* Style uniquement pour les produits */
+.prod {
+    background-color: #fffaf7;
+    box-shadow: 5px 5px 5px #D9641C36, -1px -1px 1px #D9641C36;
+}
+
+.focused {
+    box-shadow: #D9641C69 0 3px 5px -1px,#D9641C47 0 6px 10px 0,#D9641C17 0 1px 18px 0;
+}
+
+/* Style pour l'aspect background des affichages lors de l'ouverture d'un form */
+.bkg {
+    color: #88aeb5;
+    cursor: default;
+}
+
+/* Style pour l'aspect background des taches lors de l'ouverture d'un form */
+.bkg.task {
+    background-color: #fffdfc;
+    box-shadow: 5px 5px 5px #d9641c15, -1px -1px 1px #D9641C15;
+}
+
+/* Style pour l'aspect background des zones de status lors de l'ouverture d'un form */
+.bkg.statusfield {
+    box-shadow: 5px 5px 5px #266c7815, -1px -1px 1px #266c7815;
+}
+
+/*     STYLE POUR LES ELEMENTS DE LA BARRE DE RECHERCHE    */
+    .search {
+        float: right;
+        text-align : left;
+        background-color: #f9fbfb;
+        padding: 2px 1px 2px 5px;
+        margin : 10px;
+        width: 50%;
+        border-radius: 30px;
+        box-shadow: 5px 5px 5px #266c7836, -1px -1px 1px #266c7836;
+    }
+
+    .fixed {
+        position: fixed;
+        right: 10px;
+        z-index: 2;
+        top: 98px;
+    }
+
+    button.fixed {
+        top: 105px;
+    }
+
+    input.search, .finding {
+        margin: 1px 1px  1px 2px;
+        border-radius: 24px;
+        width: 80%;
+        min-height: 30px;
+    }
+
+    .search.result {
+        top: 140px;
+    }
+
+    .finding {
+        border-radius: 0;
+    }
+
+    .finding:first-of-type {
+        border-radius: 24px 24px 0 0 ;
+    }
+
+    .finding:last-of-type {
+        border-radius: 0 0 24px 24px;
+    }
+
+    .finding:first-of-type:last-of-type {
+        border-radius: 24px;
+    }
+
+    .finding:hover {
+        float: right;
+        text-align : left;
+        background-color: #f9fbfb;
+        color:#266C78;
+        box-shadow: #266c7869 0 3px 5px -1px,#266c7847 0 6px 10px 0,#266c7817 0 1px 18px 0;
+    }
+
+
+/*     STYLE DES BOUTONS     */
+
+    /* Style global */ 
+    button {
+        color:#266C78;
+        align-items: center;
+        background-color: #f9fbfb;
+        border-radius: 24px;
+        border-style: none;
+        box-shadow: #266c7869 0 3px 5px -1px,#266c7847 0 6px 10px 0,#266c7817 0 1px 18px 0;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: inline-flex;
+        height: 48px;
+        justify-content: center;
+        overflow: visible;
+        padding: 2px 24px;
+        text-align: center;
+        transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+        width: auto;
+        will-change: transform,opacity;
+    }
+
+    /* Style global quand le bouton est survolé */
+    button:hover {
+        background: #fff6ef;
+        color: #D9641C;
+        box-shadow: #D9641C69 0 3px 5px -1px,#D9641C47 0 6px 10px 0,#D9641C17 0 1px 18px 0;
+    }
+
+    /* Style global quand le bouton est mis en arriere plan */
+    button:disabled {
+        color: #88aeb5;
+        cursor: auto;
+        background-color: #fff;
+        box-shadow: rgba(205, 206, 207, 0.2) 0 1px 3px 0, rgba(202, 201, 201, 0.5) 0 4px 8px 3px;
+    }
+
+    /* Style du bouton add */
+    .add {
+        position: fixed;
+        left: 5%;
+        z-index: 2;
+        top: 105px;
+    }
+
+
+/*     STYLE DES FORMS     */
+
+    /* Style global */
+    form {
+        border-radius: 5px;
+        padding: 10px;
+        width: 90%;
+        background-color: #fffaf7;
+        box-shadow: 5px 5px 10px #D9641C36, -1px -1px 5px #D9641C36 ;
+        
+        /* To put the form in the midle of the page */
+        position: fixed;
+        top: 50%;  
+        left: 50%; 
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 2;
+    }
+
+    /* Style de la sub div pour que les éléments soient alignés*/
+    .inForm {
+        width: 60%;
+        margin: auto;
+    }
+
+    /*  Style des input  */
+
+        /*style global*/
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            color:#266C78; 
+            background-color: #f9fbfb;
+            box-shadow: 5px 5px 5px #266c7842, -1px -1px 1px #266c7836;
+        }
+
+        /*style de l'input du nom*/
+        .name {
+            border: 1px solid #fffaf7;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #fffaf7;
+            color :#266C78;
+
+        }
+        /*style de l'input du nom quand on écrit dedans*/
+        .name:focus {
+            font-weight: normal;
+            border: 1px solid #fffaf7;
+            outline: none;
+            color: black;
+        }
+
+        /*style de l'input de la description*/
+        .desc {
+            min-height: 80px;
+            resize: vertical;
+            box-shadow: 5px 5px 5px #266c7842, -1px -1px 1px #266c7836;
+        }
+
+        /*style de l'input de la description quand on écrit dedans*/
+        .desc:focus {
+            outline: none;
+            color:black;
+            box-shadow: 5px 5px 10px #266c7850, -1px -1px 2px #266c7842;
+        }
+
+        /*style du select du status*/
+        .select {
+            box-shadow: 5px 5px 5px #266c7842, -1px -1px 1px #266c7836;
+            margin-bottom: 15px;
+        }
+
+        /*style du select du status quand on le modifie*/
+        .select:focus {
+            outline: none;
+            box-shadow: 5px 5px 10px #266c7850, -1px -1px 2px #266c7842;  
+        }
+
+

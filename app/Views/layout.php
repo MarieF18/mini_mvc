@@ -9,20 +9,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Définit le titre de la page avec échappement -->
     <title><?= isset($title) ? htmlspecialchars($title) : 'App' ?></title>
+    <!-- Link with the stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <!-- Corps du document -->
 <body>
 <!-- En-tête de la page -->
 <header>
     <!-- Affiche le titre principal avec échappement -->
-    <h1><?= isset($title) ? htmlspecialchars($title) : 'App' ?></h1>
+    <a href="/"><h1><?= isset($title) ? htmlspecialchars($title) : 'App' ?></h1></a>
     <nav>
         <a href="/">Panier</a>
         <a href="/">Espace client</a>
+        <a href="/connexion">Connexion</a>
     </nav>
 </header>
 <!-- Zone de contenu principal -->
 <main>
+    <div class="fixposition">
+            <h1><br></h1>
+    </div>
     <!-- Insère le contenu rendu de la vue -->
     <?= $content ?>
     

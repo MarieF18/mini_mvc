@@ -10,7 +10,11 @@ use Mini\Core\Router;
 $routes = [
     ['GET', '/', [Mini\Controllers\HomeController::class, 'accueil']],
     ['GET', '/users', [Mini\Controllers\HomeController::class, 'users']],
-    ['GET', '/produit', [Mini\Controllers\HomeController::class, 'prod']],
+    ['GET', '/produit', [Mini\Controllers\ProductController::class, 'detailProd']],
+    ['GET', '/connexion', [Mini\Controllers\AuthController::class, 'login']],
+    ['POST', '/connexion', [Mini\Controllers\AuthController::class, 'login']],
+    ['GET', '/inscription', [Mini\Controllers\AuthController::class, 'register']],
+    ['POST', '/inscription', [Mini\Controllers\AuthController::class, 'register']],
 ];
 
 // Bootstrap du router

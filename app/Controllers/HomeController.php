@@ -8,6 +8,7 @@ use Mini\Core\Controller;
 use Mini\Models\User;
 use Mini\Models\Product;
 use Mini\Models\Categorie;
+use Mini\Controllers\AuthController;
 
 // Déclare la classe finale HomeController qui hérite de Controller
 final class HomeController extends Controller
@@ -24,22 +25,10 @@ final class HomeController extends Controller
         ]);
     }
 
-    public function prod(): void
-    {
-        // Appelle le moteur de rendu avec la vue et ses paramètres
-        $this->render('home/detailProd', params: [
-            $curr_id = $_GET['produit'],
-            'product' => $product = Product::findById($curr_id),
-            // Définit le titre transmis à la vue
-            'title' => $product['label'],
-            'categorie' => $categorie = (Categorie::findById($product['id_cat']))['nom_cat'],
-        ]);
-    }
-
     public function users(): void
     {
         // Appelle le moteur de rendu avec la vue et ses paramètres
-        $this->render('home/users', params: [
+        $this->render('user/users', params: [
             // Définit le titre transmis à la vue
             'title' => 'Liste des Utilisateurs',
             'users' => $users = User::getAll(),

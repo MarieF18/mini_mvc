@@ -68,7 +68,12 @@ class Panier
     public static function findByUserId($id_user)
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->prepare("SELECT * FROM paniers WHERE id_user = ?");
+        $stmt = $pdo->prepare("
+            SELECT p.*, c.quantity, cat.nom_cat AS nomCat
+            FROM paniers AS c
+            INNER JOIN products AS p ON c.id_prod = p.id_prod
+            LEFT JOIN categories AS cat ON cat.id_cat = p.id_cat
+            WHERE id_user = ?");
         $stmt->execute([$id_user]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }

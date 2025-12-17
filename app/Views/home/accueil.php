@@ -5,8 +5,8 @@
 
 <!-- Liste des Produits -->
 <?php if (!empty($products)) : ?>
-    <div>
-        <?php foreach ($products as $product) : ?>
+    <?php foreach ($products as $product) : ?>
+        <div class="prod">
             <h3><?=htmlspecialchars($product['label'])?></h3>
             <span><?=htmlspecialchars($product['prix'])?>€</span>
 
@@ -20,8 +20,8 @@
             <p><?=htmlspecialchars($product['description'])?></p>
             <a href="/produit?produit=<?=$product['id_prod']?>">Plus d'information</a>
             <button type="button">Ajouter au panier</button>
-        <?php endforeach; ?>
-    </div>
+        </div>
+    <?php endforeach; ?>
 <?php else : ?>
     <p>Aucun produit trouvé.</p>
 <?php endif; ?>
